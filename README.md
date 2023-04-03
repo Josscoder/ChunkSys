@@ -8,4 +8,4 @@ The packet-based system used by ChunkSys is based on dividing data into smaller 
 
 RabbitMQ is used as the messaging system for implementing the packet exchange between clients and servers in the ChunkSys project. RabbitMQ is an open-source messaging system based on the Advanced Message Queuing Protocol (AMQP), which provides a reliable and scalable messaging mechanism for data transfer.
 
-In summary, ChunkSys is a software project that focuses on implementing a client-server system with packet-based communication using RabbitMQ as the messaging system. The solution provided by this project enables reliable and scalable transmission and reception of data in a distributed architecture.
+In summary, ChunkSys is a software project that focuses on implementing a client-server system with packet-based communication using RabbitMQ as the messaging system. The solution provided by this project enables reliable and scalable transmission and reception of data in a distributed architecture. 
