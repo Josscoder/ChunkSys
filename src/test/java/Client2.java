@@ -1,6 +1,11 @@
 import net.chunkmind.chunksys.client.ChunkClient;
+import net.chunkmind.chunksys.protocol.packet.Packet;
+import net.chunkmind.chunksys.protocol.packet.base.BatchPacket;
 import net.chunkmind.chunksys.protocol.packet.base.MessagePacket;
 import net.chunkmind.chunksys.settings.RabbitMQSettings;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Client2 {
 
@@ -8,14 +13,17 @@ public class Client2 {
         ChunkClient chunkClient = new ChunkClient();
         chunkClient.startup(RabbitMQSettings.builder().build());
 
-        for (int i = 0; i <= 100; i++) {
-            chunkClient.sendPacketToClients(new MessagePacket(){{
-                message = "Hola mundo clients";
-            }});
+        List<Packet> packets = new ArrayList<>();
 
-            chunkClient.sendPacketToServer(new MessagePacket(){{
-                message = "Hola mundo server";
-            }});
+        for (int i = 0; i <= 1000; i++) {
+            MessagePacket messagePacket = new MessagePacket();
+            messagePacket.setMessage("Hola mundo " + i);
+            packets.add(messagePacket);
         }
+
+        BatchPacket batchPacket = new BatchPacket();
+        batchPacket.getBatchOfPackets().addAll(packets);
+
+        chunkClient.sendPacketToServer(batchPacket);
     }
 }

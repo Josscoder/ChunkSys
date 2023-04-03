@@ -2,12 +2,16 @@ package net.chunkmind.chunksys.protocol.packet.base;
 
 import com.google.common.io.ByteArrayDataInput;
 import com.google.common.io.ByteArrayDataOutput;
+import lombok.Getter;
+import lombok.Setter;
 import net.chunkmind.chunksys.protocol.ProtocolInfo;
 import net.chunkmind.chunksys.protocol.packet.Packet;
 
 public class MessagePacket extends Packet {
 
-    public String message;
+    @Getter
+    @Setter
+    private String message;
 
     @Override
     public byte getPid() {

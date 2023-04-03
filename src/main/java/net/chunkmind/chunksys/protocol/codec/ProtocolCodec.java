@@ -4,6 +4,7 @@ import com.google.common.io.ByteArrayDataInput;
 import com.google.common.io.ByteArrayDataOutput;
 import com.google.common.io.ByteStreams;
 import net.chunkmind.chunksys.protocol.packet.IPacket;
+import net.chunkmind.chunksys.protocol.packet.base.BatchPacket;
 import net.chunkmind.chunksys.protocol.packet.base.MessagePacket;
 
 import java.lang.reflect.InvocationTargetException;
@@ -18,7 +19,7 @@ public class ProtocolCodec {
     private static final Map<Class<? extends IPacket>, Consumer<IPacket>> RESPONSES = new HashMap<>();
 
     static {
-        registerPacket(new MessagePacket());
+        registerPacket(new MessagePacket(), new BatchPacket());
     }
 
     public static void registerPacket(IPacket...packets) {
