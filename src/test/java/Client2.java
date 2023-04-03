@@ -8,12 +8,14 @@ public class Client2 {
         ChunkClient chunkClient = new ChunkClient();
         chunkClient.startup(RabbitMQSettings.builder().build());
 
-        chunkClient.sendPacketToClients(new MessagePacket(){{
-            message = "Hola mundo clients";
-        }});
+        for (int i = 0; i <= 100; i++) {
+            chunkClient.sendPacketToClients(new MessagePacket(){{
+                message = "Hola mundo clients";
+            }});
 
-        chunkClient.sendPacketToServer(new MessagePacket(){{
-            message = "Hola mundo server";
-        }});
+            chunkClient.sendPacketToServer(new MessagePacket(){{
+                message = "Hola mundo server";
+            }});
+        }
     }
 }

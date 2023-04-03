@@ -6,7 +6,6 @@ import com.rabbitmq.client.ConnectionFactory;
 import lombok.Getter;
 import net.chunkmind.chunksys.protocol.codec.ProtocolCodec;
 import net.chunkmind.chunksys.protocol.packet.IPacket;
-import net.chunkmind.chunksys.protocol.packet.base.MessagePacket;
 import net.chunkmind.chunksys.settings.RabbitMQSettings;
 
 import java.io.IOException;
@@ -32,11 +31,6 @@ public abstract class ChunkService {
         } catch (IOException | TimeoutException e) {
             throw new RuntimeException(e);
         }
-
-        ProtocolCodec.registerPacketResponse(MessagePacket.class, packet -> {
-            MessagePacket messagePacket = (MessagePacket) packet;
-            System.out.println("Message received: " + messagePacket.message);
-        });
     }
 
     public CompletableFuture<Boolean> sendPacket(String channelId, IPacket packet) {
