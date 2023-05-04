@@ -14,7 +14,7 @@ import java.util.concurrent.TimeoutException;
 import java.util.function.Consumer;
 
 @Getter
-public abstract class ChunkService {
+public class ChunkService {
 
     protected Connection connection = null;
     protected Channel channel = null;
