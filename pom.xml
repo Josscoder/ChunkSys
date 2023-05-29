@@ -15,7 +15,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <rabbitmq.version>5.17.0</rabbitmq.version>
-        <lombok.version>1.18.26</lombok.version>
+        <lombok.version>1.18.28</lombok.version>
         <guava.version>31.1-jre</guava.version>
     </properties>
 
